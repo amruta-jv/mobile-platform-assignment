@@ -9,6 +9,7 @@
     margin: 75px;
     margin-left: 140px;
     border: 1px solid #aaaaaa;
+    position: relative;
 }
 
 .right-panel {
@@ -18,10 +19,6 @@
 
 .widget {
 	margin: 5px;
-}
-
-.widget-in-design {
-	margin: 10px !important;
 }
 
 .label-div {

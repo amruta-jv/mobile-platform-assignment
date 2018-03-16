@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -6,18 +6,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 	title = 'Mobile platform UI';
-	leftPostionOfDesignDiv;
-	topPostionOfDesignDiv;
-
-	ngOnInit() {
-		let desginDivPositions = document.getElementById("design-div").getBoundingClientRect();
-		this.leftPostionOfDesignDiv = desginDivPositions.left;
-		this.topPostionOfDesignDiv = desginDivPositions.top;
-	}
-	
-
 
 	onDragStart(event, selectedWidget) {
 		event.dataTransfer.setData('selectedWidget', selectedWidget);
@@ -27,7 +17,7 @@ export class AppComponent implements OnInit {
 		event.preventDefault();
 		let draggedWidget = event.dataTransfer.getData('selectedWidget');
 		let widget = this.constructWidgetByName(draggedWidget);
-		document.getElementById("design-div").appendChild(widget);
+		this.setPositionOfWidget(widget, event.offsetX , event.offsetY);
 	}
 
 	allowDrop(event) {
@@ -39,16 +29,25 @@ export class AppComponent implements OnInit {
 		switch (draggedWidget) {
 			case 'input': widget = document.createElement('input');
 						  widget['id'] = "input-"
-						  widget.setAttribute('class', "widget-in-design");
 						  break;
 		    case 'button': widget = document.createElement('button');
 						  widget['id'] = "button-"
-						  widget.setAttribute('class', "widget-in-design btn-primary");
+						  widget.setAttribute('class', "btn-primary");
 						  widget.innerHTML = 'Submit';
 						  break;
 		}
 		widget['id'] = widget['id'] + (document.getElementById("design-div").childElementCount + 1);
-		return widget;
+		let divWidget = document.createElement('div');
+		divWidget['id'] = "div-" + (document.getElementById("design-div").childElementCount + 1);
+		divWidget.appendChild(widget);
+		return divWidget;
+	}
+
+	setPositionOfWidget(widget, leftPos, topPos) {
+		document.getElementById("design-div").appendChild(widget);
+		let position = "position: absolute; left: "+ leftPos + "px;";
+		position = position + "top:" + topPos + "px";
+		document.getElementById(widget['id']).setAttribute("style", position);
 	}
 
 
