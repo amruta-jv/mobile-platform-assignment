@@ -4,12 +4,23 @@
 }
 
 .design-div {
-	width: 350px;
-    height: 350px;
-    margin: 75px;
-    margin-left: 140px;
+    position: absolute;
+    overflow: hidden;
     border: 1px solid #aaaaaa;
-    position: relative;
+    height: 354px;
+    width: 199px;
+    margin-left: 213px;
+    margin-top: 75px;
+}
+
+.mobile-div {
+    position: absolute;
+    z-index: -1;
+    margin-left: 189px;
+}
+
+.mobile-image {
+	width: 60%;
 }
 
 .right-panel {
