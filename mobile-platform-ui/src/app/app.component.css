@@ -1,0 +1,28 @@
+.left-panel {
+	height: 100vh;
+	border-right: double;
+}
+
+.design-div {
+	width: 350px;
+    height: 350px;
+    margin: 75px;
+    margin-left: 140px;
+    border: 1px solid #aaaaaa;
+}
+
+.right-panel {
+	border-left: double;
+	height: 100vh;
+}
+
+.widget-div {
+	margin: 5px;
+}
+
+.label-div {
+	text-align: center;
+	margin: 5px;
+}
+
+
