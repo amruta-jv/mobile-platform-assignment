@@ -3,18 +3,15 @@
     <div class="label-div">
       <label>Widgets</label>
     </div>
-    <div class="widget-div">
-      <input type="text"  draggable="true" (dragstart)="onDragStart($event, dragData)" id="input-widget" class="widget">
-    </div>
-    <div class="widget-div">
-      <button type="submit" draggable="true" (dragstart)="onDragStart($event, dragData)" class="btn-primary widget" id="btn-widget">Submit</button>
-    </div>
+      <input type="text"  draggable="true" (dragstart)="onDragStart($event, 'input')" id="input" class="widget">
+      <br>
+      <button type="submit" draggable="true" (dragstart)="onDragStart($event, 'button')" class="btn-primary widget" id="button">Submit</button>
   </div>
   <div class="col-md-6 design-panel">
     <div class="label-div">
       <label>Design</label>
     </div>
-    <div (drop)="onDrop($event, dropData)" (dragover)="allowDrop($event)" class="design-div" >
+    <div (drop)="onDrop($event, dropData)" (dragover)="allowDrop($event)" id="design-div" class="design-div" >
     </div>
   </div>
   <div class="col-md-3 right-panel">

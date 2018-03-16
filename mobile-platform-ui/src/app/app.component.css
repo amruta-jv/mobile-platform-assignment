@@ -16,8 +16,12 @@
 	height: 100vh;
 }
 
-.widget-div {
+.widget {
 	margin: 5px;
+}
+
+.widget-in-design {
+	margin: 10px !important;
 }
 
 .label-div {

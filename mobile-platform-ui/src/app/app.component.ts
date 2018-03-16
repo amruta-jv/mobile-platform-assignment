@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -6,22 +6,52 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 	title = 'Mobile platform UI';
+	leftPostionOfDesignDiv;
+	topPostionOfDesignDiv;
 
-	onDragStart(event, data) {
-		event.dataTransfer.setData('data', data);
+	ngOnInit() {
+		let desginDivPositions = document.getElementById("design-div").getBoundingClientRect();
+		this.leftPostionOfDesignDiv = desginDivPositions.left;
+		this.topPostionOfDesignDiv = desginDivPositions.top;
 	}
 	
-	onDrop(event, data) {
-		let dataTransfer = event.dataTransfer.getData('data');
-		console.log("Dropped", event)
+
+
+	onDragStart(event, selectedWidget) {
+		event.dataTransfer.setData('selectedWidget', selectedWidget);
+	}
+
+	onDrop(event, selectedWidget) {
 		event.preventDefault();
+		let draggedWidget = event.dataTransfer.getData('selectedWidget');
+		let widget = this.constructWidgetByName(draggedWidget);
+		document.getElementById("design-div").appendChild(widget);
 	}
 
 	allowDrop(event) {
 		event.preventDefault();
 	}
+
+	constructWidgetByName(draggedWidget) {
+		let widget;
+		switch (draggedWidget) {
+			case 'input': widget = document.createElement('input');
+						  widget['id'] = "input-"
+						  widget.setAttribute('class', "widget-in-design");
+						  break;
+		    case 'button': widget = document.createElement('button');
+						  widget['id'] = "button-"
+						  widget.setAttribute('class', "widget-in-design btn-primary");
+						  widget.innerHTML = 'Submit';
+						  break;
+		}
+		widget['id'] = widget['id'] + (document.getElementById("design-div").childElementCount + 1);
+		return widget;
+	}
+
+
 
 }
 
