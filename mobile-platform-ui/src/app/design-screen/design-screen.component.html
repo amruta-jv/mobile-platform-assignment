@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-3 left-panel">
+    <div class="label-div">
+      <label>Widgets</label>
+    </div>
+      <input type="text"  draggable="true" (dragstart)="onDragStart($event, 'input')" id="input" class="widget">
+      <br>
+      <button type="submit" draggable="true" (dragstart)="onDragStart($event, 'button')" class="btn-primary widget" id="button">Submit</button>
+  </div>
+  <div class="col-md-6 design-panel">
+    <div class="label-div">
+      <label>Design</label>
+    </div>
+    <div class="preview-div">
+         <button class="btn-primary" (click)="showPreview()">Preview</button>
+    </div>
+    <div>
+       <div class="mobile-div">
+         <img class="mobile-image" src="/assets/images/iphone5S-portrait.png">
+       </div>
+       <div (drop)="onDrop($event, dropData)" (dragover)="allowDrop($event)" id="design-div" class="design-div" >
+    </div>
+    </div>
+  </div>
+  <div class="col-md-3 right-panel">
+    <div class="label-div">
+      <label>Properties</label>
+    </div>
+  </div>
+</div>

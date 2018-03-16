@@ -3,14 +3,28 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PreviewComponent } from './preview/preview.component';
+import { RouterModule, Routes } from '@angular/router';
+import { DesignScreenComponent } from './design-screen/design-screen.component';
 
+const appRoutes: Routes = [
+  { path: 'preview', component: PreviewComponent },
+  {
+    path: '',
+    component: DesignScreenComponent
+  }
+];
 @NgModule({
   declarations: [
     AppComponent,
-    PreviewComponent
+    PreviewComponent,
+    DesignScreenComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
