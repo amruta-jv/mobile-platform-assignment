@@ -1,0 +1,15 @@
+.preview-div {
+    position: absolute;
+    overflow: hidden;
+    border: 1px solid #aaaaaa;
+    height: 445px;
+    width: 253px;
+    margin-left: 204px;
+    margin-top: 50px;
+}
+
+.mobile-div {
+    position: absolute;
+    z-index: -1;
+    margin-left: 189px;
+}

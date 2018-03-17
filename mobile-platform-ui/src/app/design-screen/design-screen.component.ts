@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AppService } from '../../shared/app.global';
 
 @Component({
   selector: 'app-design-screen',
@@ -8,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class DesignScreenComponent {
 
-  constructor(private router: Router, private route: ActivatedRoute,) {
+  constructor(private router: Router, private route: ActivatedRoute, private appService: AppService) {
 
 	}
 
@@ -54,6 +55,7 @@ export class DesignScreenComponent {
 	}
 
 	showPreview() {
+		this.appService.updateAppGlobals("design", document.getElementById('design-div').innerHTML);
 		this.router.navigate(["/preview"]);
 	}
 

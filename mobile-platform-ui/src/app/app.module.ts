@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { PreviewComponent } from './preview/preview.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DesignScreenComponent } from './design-screen/design-screen.component';
+import { AppService } from '../shared/app.global';
 
 const appRoutes: Routes = [
   { path: 'preview', component: PreviewComponent },
@@ -26,7 +27,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

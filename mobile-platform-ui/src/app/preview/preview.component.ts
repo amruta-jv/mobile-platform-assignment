@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../../shared/app.global';
 
 @Component({
   selector: 'app-preview',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appService: AppService) { }
+
 
   ngOnInit() {
+    this.showPreview();
+  }
+
+  showPreview() {
+  	let test = this.appService.getAppGlobals();
+    var div = document.getElementById('preview-div');
+    div.innerHTML = test.design.trim();
   }
 
 }
