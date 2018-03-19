@@ -7,7 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	title = 'Mobile platform UI';
+	title = 'Mahindra Comviva Mobile Platform UI';
 
 
 }
