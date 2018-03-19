@@ -18,7 +18,7 @@ export class PreviewComponent implements OnInit {
   showPreview() {
   	let globalVal = this.appService.getAppGlobals();
     var div = document.getElementById('preview-div');
-    div.innerHTML = globalVal.design != undefined ? globalVal.design.trim() : globalVal.design;
+    div.innerHTML = globalVal.design != undefined ? globalVal.design.trim() : "";
   }
 
 }
