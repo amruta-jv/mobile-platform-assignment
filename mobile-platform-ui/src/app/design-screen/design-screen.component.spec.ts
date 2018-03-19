@@ -38,7 +38,7 @@ describe('DesignScreenComponent', () => {
     expect(labels[2].textContent).toContain('Properties');
   }));
 
-  it('should Preview button', async(() => {
+  it('should have preview button', async(() => {
     const fixture = TestBed.createComponent(DesignScreenComponent);
     fixture.detectChanges();
     let previewBtn = fixture.debugElement.query(By.css('.preview-btn'));
