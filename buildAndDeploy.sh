@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/sh
 
 cd mobile-platform-ui
 npm install
