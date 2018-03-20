@@ -4,9 +4,6 @@ cd mobile-platform-ui
 npm install
 node_modules/.bin/ng --version
 node_modules/.bin/ng build --prod
-echo "-----------------------"
-ls -al
-echo "Generating tar file of deployable"
+rm mobile-platform-ui.zip
 tar -zcvf mobile-platform-ui.tar.gz dist
-echo "Generated tar file of deployable"
-ls -al
+
