@@ -17,7 +17,7 @@ export class DesignScreenComponent {
 		event.dataTransfer.setData('selectedWidget', selectedWidget);
 	}
 
-	onDrop(event, selectedWidget) {
+	onDrop(event) {
 		event.preventDefault();
 		let draggedWidget = event.dataTransfer.getData('selectedWidget');
 		let widget = this.constructWidgetByName(draggedWidget);
