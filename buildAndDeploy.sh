@@ -4,6 +4,4 @@ cd mobile-platform-ui
 npm install
 node_modules/.bin/ng --version
 node_modules/.bin/ng build --prod
-sudo apt-get install zip
-sudo zip -r mobile-platform-ui.zip dist
-ls
+tar -zcvf mobile-platform-ui.tar.gz dist
