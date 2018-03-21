@@ -24,9 +24,9 @@ npm install webdriver-manager
 ./node_modules/protractor/bin/webdriver-manager update
 ./node_modules/protractor/bin/webdriver-manager start > log.txt &
 
-# Xvfb :99 &
-# export DISPLAY=:99
-# sleep 20s
+Xvfb :99 &
+export DISPLAY=:99
+sleep 20s
 
 node_modules/.bin/ng serve &
 node_modules/.bin/ng e2e
