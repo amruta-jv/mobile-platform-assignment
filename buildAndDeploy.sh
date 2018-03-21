@@ -10,5 +10,9 @@ if [ $? -ne 0 ]; then
     exit 1;
 fi
 
+node_modules/.bin/ng build --prod
+
+cp -r dist/*  /srv/www/gui-builder/
+
 
 
