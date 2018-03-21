@@ -11,7 +11,9 @@ if [ $? -ne 0 ]; then
 fi
 
 node_modules/.bin/ng build --prod
-
+echo "--------------------------"
+ls
+echo "--------------------------"
 sudo cp -r dist/*  /srv/www/gui-builder/
 
 
