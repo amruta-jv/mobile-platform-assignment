@@ -14,7 +14,7 @@ node_modules/.bin/ng build --prod
 echo "--------------------------"
 ls
 echo "--------------------------"
-sudo cp -r dist/*  /srv/www/gui-builder/
+sudo -S cp -r dist/*  /srv/www/gui-builder/ true
 
 
 
