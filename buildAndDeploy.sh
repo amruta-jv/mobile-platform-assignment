@@ -12,7 +12,7 @@ fi
 
 node_modules/.bin/ng build --prod
 
-cp -r dist/*  /srv/www/gui-builder/
+sudo cp -r dist/*  /srv/www/gui-builder/
 
 
 
