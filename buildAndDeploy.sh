@@ -20,6 +20,10 @@ sudo dpkg --unpack google-chrome-stable_current_amd64.deb
 sudo apt-get install -f -y
 sudo apt-get clean
 
+echo "-----------Command to know google-chrome path"
+which google-chrome
+echo "-----------Command to know google-chrome path"
+
 npm install webdriver-manager
 ./node_modules/protractor/bin/webdriver-manager update
 ./node_modules/protractor/bin/webdriver-manager start > log.txt &
