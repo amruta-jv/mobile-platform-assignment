@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing'
 import { By } from '@angular/platform-browser';
 
 import { PreviewComponent } from './preview.component';
-import { AppService } from '../../shared/app.global';
+import { AppService } from '../../shared/app.service';
 
 describe('PreviewComponent', () => {
   let component: PreviewComponent;
