@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
 
 import { DesignScreenComponent } from './design-screen.component';
-import { AppService } from '../../shared/app.global';
+import { AppService } from '../../shared/app.service';
 
 describe('DesignScreenComponent', () => {
   let component: DesignScreenComponent;
