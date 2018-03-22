@@ -29,7 +29,19 @@
 }
 
 .widget {
-	margin: 5px;
+    margin-top: 20px;
+}
+
+.widget-enabled {
+    cursor: cell;
+}
+
+.widget-disabled {
+    cursor: not-allowed;
+}
+
+.widget-div {
+    padding: 15px;
 }
 
 .label-div {
