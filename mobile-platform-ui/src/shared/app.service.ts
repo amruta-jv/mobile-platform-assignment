@@ -27,7 +27,7 @@ export class AppService {
 	}
 
 	/**
-	* Deletes Party interface data.
+	* Deletes AppGlobals interface data.
 	*/
 	deleteAppGlobals() {
 		this.sharedVariables = {}; 
