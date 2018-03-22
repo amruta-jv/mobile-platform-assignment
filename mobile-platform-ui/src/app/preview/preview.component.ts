@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../../shared/app.global';
+import { AppService } from '../../shared/app.service';
 
 @Component({
   selector: 'app-preview',
@@ -15,6 +15,9 @@ export class PreviewComponent implements OnInit {
     this.showPreview();
   }
 
+  /**
+    This function displays preview for the design done in design page.
+  */
   showPreview() {
   	let globalVal = this.appService.getAppGlobals();
     var div = document.getElementById('preview-div');
