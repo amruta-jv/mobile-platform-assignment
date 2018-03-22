@@ -31,5 +31,8 @@ sudo zip -r mobile-platform-ui.zip dist
 # Deploys to apache2 server
 sudo cp -r dist/*  /srv/www/gui-builder/
 
+# Copies to downloadable path
+sudo cp mobile-platform-ui.zip /srv/www/gui-builder/
+
 
 
