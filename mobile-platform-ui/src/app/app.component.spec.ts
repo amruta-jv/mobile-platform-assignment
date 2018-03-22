@@ -2,6 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing'
 
 import { AppComponent } from './app.component';
+const { version: appVersion } = require('../../package.json')
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'Mahindra Comviva Mobile Platform UI' with version`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toContain('Mahindra Comviva Mobile Platform UI');
-  }));
-
   it('should render title in a span tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('span').textContent).toContain('Mahindra Comviva Mobile Platform UI');
+  }));
+
+  it(`should have app version same as defined in package.json`, async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.appVersion).toContain(appVersion);
   }));
 });

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PreviewComponent } from './preview/preview.component';
@@ -27,7 +27,8 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [AppService],
+  providers: [AppService,
+  { provide: LOCALE_ID, useValue: 'en' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
