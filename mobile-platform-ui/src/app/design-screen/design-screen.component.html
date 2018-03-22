@@ -4,7 +4,7 @@
       <label>Widgets</label>
     </div>
     <div class="widget-div">
-        <input type="text"  disabled="true" draggable="true" (dragstart)="onDragStart($event, 'input')" id="input" class="widget widget-enabled">
+        <input type="text"  disabled="true" draggable="true" (dragstart)="onDragStart($event, 'input')" id="input" class="widget input-widget widget-enabled">
         <br>
         <button type="submit" draggable="true" (dragstart)="onDragStart($event, 'button')" class="btn-primary widget widget-enabled" id="button">Submit</button>
         <br>
@@ -28,7 +28,7 @@
       <label>Design</label>
     </div>
     <div class="preview-div">
-         <button class="btn-primary preview-btn" (click)="showPreview()">Preview</button>
+         <button class="btn-md btn-success preview-btn" (click)="showPreview()">Preview</button>
     </div>
     <div>
        <div class="mobile-div">
