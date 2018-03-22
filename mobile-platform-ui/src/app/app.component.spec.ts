@@ -19,10 +19,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'Mahindra Comviva Mobile Platform UI'`, async(() => {
+  it(`should have as title 'Mahindra Comviva Mobile Platform UI' with version`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Mahindra Comviva Mobile Platform UI');
+    expect(app.title).toContain('Mahindra Comviva Mobile Platform UI');
   }));
 
   it('should render title in a span tag', async(() => {

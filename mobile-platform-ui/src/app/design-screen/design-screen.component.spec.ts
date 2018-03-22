@@ -34,8 +34,8 @@ describe('DesignScreenComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     let labels = compiled.querySelectorAll('label')
     expect(labels[0].textContent).toContain('Widgets');
-    expect(labels[1].textContent).toContain('Design');
-    expect(labels[2].textContent).toContain('Properties');
+    expect(labels[2].textContent).toContain('Design');
+    expect(labels[3].textContent).toContain('Properties');
   }));
 
   it('should have preview button', async(() => {
