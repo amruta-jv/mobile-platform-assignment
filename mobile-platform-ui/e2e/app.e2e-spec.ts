@@ -9,6 +9,6 @@ describe('mobile-platform-ui App', () => {
 
   it('should display app name', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Mahindra Comviva Mobile Platform UI');
+    expect(page.getParagraphText()).toContain('Mahindra Comviva Mobile Platform UI');
   });
 });
