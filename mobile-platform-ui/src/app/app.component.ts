@@ -9,9 +9,8 @@ const { version: appVersion } = require('../../package.json')
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	title = 'Mahindra Comviva Mobile Platform UI';
-	public appVersion;
-
+	public appVersion
+	
 	 constructor() {
 	 	this.appVersion = appVersion
 	 }

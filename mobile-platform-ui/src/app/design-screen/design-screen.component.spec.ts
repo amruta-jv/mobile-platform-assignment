@@ -34,7 +34,7 @@ describe('DesignScreenComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     let labels = compiled.querySelectorAll('label')
     expect(labels[0].textContent).toContain('Widgets');
-    expect(labels[2].textContent).toContain('Design');
+    expect(labels[2].textContent).toContain('Design in iOS');
     expect(labels[3].textContent).toContain('Properties');
   }));
 
@@ -42,7 +42,7 @@ describe('DesignScreenComponent', () => {
     const fixture = TestBed.createComponent(DesignScreenComponent);
     fixture.detectChanges();
     let previewBtn = fixture.debugElement.query(By.css('.preview-btn'));
-    expect(previewBtn.nativeElement.textContent).toEqual('Preview');
+    expect(previewBtn.nativeElement.textContent).toEqual('Preview In Android');
   }));
 
   it('should have iPhone 5S mobile image', async(() => {

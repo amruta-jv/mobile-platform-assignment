@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-3 left-panel">
     <div class="label-div">
-      <label>Widgets</label>
+      <label i18n="@@widgets">Widgets</label>
     </div>
     <div class="widget-div">
         <input type="text"  disabled="true" draggable="true" (dragstart)="onDragStart($event, 'input')" id="input" class="widget input-widget widget-enabled">
@@ -25,10 +25,11 @@
   </div>
   <div class="col-md-6 design-panel">
     <div class="label-div">
-      <label>Design</label>
+      <label i18n="@@design_in_ios">Design in iOS</label>
     </div>
     <div class="preview-div">
-         <button class="btn-md btn-success preview-btn" (click)="showPreview()">Preview</button>
+         <button class="btn-md btn-success preview-btn" (click)="showPreview()" 
+         i18n="@@preview_in_android">Preview In Android</button>
     </div>
     <div>
        <div class="mobile-div">
@@ -40,7 +41,7 @@
   </div>
   <div class="col-md-3 right-panel">
     <div class="label-div">
-      <label>Properties</label>
+      <label i18n="@@properties">Properties</label>
     </div>
   </div>
 </div>
