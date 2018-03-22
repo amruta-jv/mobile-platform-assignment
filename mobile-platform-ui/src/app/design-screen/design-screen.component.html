@@ -3,16 +3,32 @@
     <div class="label-div">
       <label>Widgets</label>
     </div>
-      <input type="text"  draggable="true" (dragstart)="onDragStart($event, 'input')" id="input" class="widget">
-      <br>
-      <button type="submit" draggable="true" (dragstart)="onDragStart($event, 'button')" class="btn-primary widget" id="button">Submit</button>
+    <div class="widget-div">
+        <input type="text"  disabled="true" draggable="true" (dragstart)="onDragStart($event, 'input')" id="input" class="widget input-widget widget-enabled">
+        <br>
+        <button type="submit" draggable="true" (dragstart)="onDragStart($event, 'button')" class="btn-primary widget widget-enabled" id="button">Submit</button>
+        <br>
+        <input type="password" disabled="true" id="password" class="widget widget-disabled" value="123">
+        <br>
+        <label disabled="true" id="label" disabled="true" class="widget widget-disabled">Label</label>
+        <br>
+        <input type="checkbox" id="checkbox" disabled="true" class="widget widget-disabled" value="">
+        <br>
+        <input type="radio" disabled="true" id="radio" class="widget widget-disabled" name="optradio">
+        <br>
+         <select class="form-control" id="select" disabled="true" class="widget widget-disabled">
+          <option>Select</option>
+         </select>
+         <br>
+         <textarea class="form-control" rows="3" id="textarea" disabled="true" class="widget widget-disabled"></textarea>
+    </div>
   </div>
   <div class="col-md-6 design-panel">
     <div class="label-div">
       <label>Design</label>
     </div>
     <div class="preview-div">
-         <button class="btn-primary preview-btn" (click)="showPreview()">Preview</button>
+         <button class="btn-md btn-success preview-btn" (click)="showPreview()">Preview</button>
     </div>
     <div>
        <div class="mobile-div">

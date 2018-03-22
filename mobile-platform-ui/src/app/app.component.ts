@@ -10,7 +10,7 @@ const { version: appVersion } = require('../../package.json')
 })
 export class AppComponent {
 	title = 'Mahindra Comviva Mobile Platform UI';
-	public appVersion
+	public appVersion;
 
 	 constructor() {
 	 	this.appVersion = appVersion
