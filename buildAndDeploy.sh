@@ -17,7 +17,7 @@ fi
 node_modules/.bin/ng serve &
 node_modules/.bin/ng e2e
 if [ $? -ne 0 ]; then
-    echo "ERROR: e2e tests failed."
+    echo "ERROR: e2e test failed."
     exit 1;
 fi
 
