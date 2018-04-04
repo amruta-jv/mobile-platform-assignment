@@ -1,22 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppService } from '../../shared/app.service';
+declare var $: any;
 
 @Component({
   selector: 'app-design-screen',
   templateUrl: './design-screen.component.html',
   styleUrls: ['./design-screen.component.css']
 })
-export class DesignScreenComponent {
+export class DesignScreenComponent implements OnInit {
 
 	constructor(private router: Router, private route: ActivatedRoute, private appService: AppService) {
-
 	}
+
+	ngOnInit() {
+    	//$('#design-div').draggable();
+  	}
+
+
 
 	/**
 		'onDragStart' event handler function.
 	*/
 	onDragStart(event, selectedWidget) {
+		console.log("On Drag start");
 		event.dataTransfer.setData('selectedWidget', selectedWidget);
 	}
 
@@ -24,10 +31,14 @@ export class DesignScreenComponent {
 		'onDrop' event handler function.
 	*/
 	onDrop(event) {
+		console.log("On Drop event")
 		event.preventDefault();
 		let draggedWidget = event.dataTransfer.getData('selectedWidget');
 		let widget = this.constructWidgetByName(draggedWidget);
+		console.log("Widget ID:"+widget.id);
 		this.setPositionOfWidget(widget, event.offsetX , event.offsetY);
+		$('#'+widget.id).draggable();
+		//$('#design-div').draggable();
 	}
 
 
@@ -57,8 +68,11 @@ export class DesignScreenComponent {
 		}
 		widget['id'] = widget['id'] + (document.getElementById("design-div").childElementCount + 1);
 		let divWidget = document.createElement('div');
-		divWidget['id'] = "div-" + (document.getElementById("design-div").childElementCount + 1);
+		let divId = "div-" + (document.getElementById("design-div").childElementCount + 1);
+		divWidget['id'] = divId;
 		divWidget.appendChild(widget);
+		console.log('#'+divId);
+		//$('#'+divId).draggable();
 		return divWidget;
 	}
 
