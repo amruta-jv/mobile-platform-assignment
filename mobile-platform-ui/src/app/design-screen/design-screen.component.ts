@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppService } from '../../shared/app.service';
+declare var $: any;
 
 @Component({
   selector: 'app-design-screen',
@@ -14,28 +15,13 @@ export class DesignScreenComponent {
 	}
 
 	/**
-		'onDragStart' event handler function.
+		This function add clicked widget to design div and also makes it draggable.
+		@param {DOMElement} draggedWidget - Selected/dragged widget
 	*/
-	onDragStart(event, selectedWidget) {
-		event.dataTransfer.setData('selectedWidget', selectedWidget);
-	}
-
-	/**
-		'onDrop' event handler function.
-	*/
-	onDrop(event) {
-		event.preventDefault();
-		let draggedWidget = event.dataTransfer.getData('selectedWidget');
-		let widget = this.constructWidgetByName(draggedWidget);
-		this.setPositionOfWidget(widget, event.offsetX , event.offsetY);
-	}
-
-
-	/**
-		'allowDrop' event handler function.
-	*/
-	allowDrop(event) {
-		event.preventDefault();
+	addWidget(selectedWidget) {
+		let widget = this.constructWidgetByName(selectedWidget);
+	 	this.setPositionOfWidget(widget, 50 , 50);
+	 	$('#'+widget.id).draggable({cancel:false, containment:"#design-div"});
 	}
 
 	/**
