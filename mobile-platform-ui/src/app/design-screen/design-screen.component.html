@@ -4,9 +4,9 @@
       <label i18n="@@widgets">Widgets</label>
     </div>
     <div class="widget-div">
-        <input type="text" (click)="addWidget('input')" id="input" class="widget input-widget widget-enabled">
+        <input type="text" (click)="addWidget('input')" id="input" class="widget input-widget widget-enabled" data-toggle="tooltip" data-placement="right" title="Click to add">
         <br>
-        <button type="submit" (click)="addWidget('button')" class="btn-primary widget widget-enabled" id="button">Submit</button>
+        <button type="submit" (click)="addWidget('button')" class="btn-primary widget widget-enabled" id="button" data-toggle="tooltip" data-placement="right" title="Click to add">Submit</button>
         <br>
         <input type="password" disabled="true" id="password" class="widget widget-disabled" value="123" data-toggle="tooltip" data-placement="right" title="Coming Soon">
         <br>
