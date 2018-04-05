@@ -37,8 +37,7 @@ export class DesignScreenComponent implements OnInit {
 		let widget = this.constructWidgetByName(draggedWidget);
 		console.log("Widget ID:"+widget.id);
 		this.setPositionOfWidget(widget, event.offsetX , event.offsetY);
-		$('#'+widget.id).draggable();
-		//$('#design-div').draggable();
+		$('#'+widget.id).draggable({cancel:false, containment:"#design-div"});
 	}
 
 
