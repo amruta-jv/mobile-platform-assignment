@@ -27,10 +27,21 @@
     <div class="label-div">
       <label i18n="@@design_in_ios">Design in iOS</label>
     </div>
-    <div class="preview-div">
-         <button class="btn-md btn-success preview-btn" (click)="showPreview()" 
-         i18n="@@preview_in_android">Preview In Android</button>
+    <div class="preview-div row">
+      <div class="col-md-4">
+        <button class="btn-md btn-success preview-btn" (click)="showPreview()" 
+          i18n="@@preview_in_android">Preview In Android</button>
+      </div>
+      <div class="col-md-4">
+        <button class="btn-md btn-primary preview-btn" [disabled]="isJasonExists" (click)="loadJasonDesign()" 
+          i18n="@@load_jason_design">Load Jason Design</button>
+      </div>
+      <div class="col-md-4">
+        <button class="btn-md btn-primary preview-btn" [disabled]="isJasonExists" (click)="showJason()" 
+         i18n="@@view_jason">View Jason</button>
+      </div>
     </div>
+    <br>
     <div>
        <div class="mobile-div">
          <img class="mobile-image" src="/assets/images/iphone5S-portrait.png">
@@ -42,6 +53,9 @@
   <div class="col-md-3 right-panel">
     <div class="label-div">
       <label i18n="@@properties">Properties</label>
+    </div>
+    <div id="jason-div">
+      {{jason}}
     </div>
   </div>
 </div>

@@ -10,11 +10,19 @@ declare var $: any;
 })
 export class DesignScreenComponent implements OnInit {
 
+	isJasonExists: boolean = true;
+	jason: any;
 	constructor(private router: Router, private route: ActivatedRoute, private appService: AppService) {
 	}
 
 	ngOnInit() {
-    	//$('#design-div').draggable();
+    	let globalVal = this.appService.getAppGlobals();
+    	console.log('JASON',globalVal.jason);
+    	if (globalVal.jason != undefined) {
+    		this.isJasonExists = false;
+
+    	}
+    	console.log('isJasonExists',this.isJasonExists);
   	}
 
 
@@ -71,7 +79,6 @@ export class DesignScreenComponent implements OnInit {
 		divWidget['id'] = divId;
 		divWidget.appendChild(widget);
 		console.log('#'+divId);
-		//$('#'+divId).draggable();
 		return divWidget;
 	}
 
@@ -96,6 +103,43 @@ export class DesignScreenComponent implements OnInit {
 		this.appService.updateAppGlobals("design", document.getElementById('design-div').innerHTML);
 		this.router.navigate(["/preview"]);
 	}
+
+	loadJasonDesign() {
+    	let globalVal = this.appService.getAppGlobals();
+    	var div = document.getElementById('design-div');
+    	let jason = globalVal.jason != undefined ? globalVal.jason : "";
+    	this.constructDesignDivByJason(jason);
+  	}
+
+  	constructDesignDivByJason(jason) {
+  		let items = jason["$jason"].body.sections[0].items;
+  		let widget;
+  		let style;
+  		for (var i = 0; i < items.length; ++i) {
+			switch (items[i].type) {
+			case 'textfield': widget = document.createElement('input');
+						  	  widget['id'] = "input-";
+						 	 break;
+			case 'button': widget = document.createElement('button');
+						  widget['id'] = "button-"
+						  widget.setAttribute('class', "btn-primary");
+						  widget.innerHTML = 'Submit';
+						  break;
+			}
+			widget['id'] = widget['id'] + (i + 1);
+			let divWidget = document.createElement('div');
+			let divId = "div-" + (i + 1);
+			divWidget['id'] = divId;
+			divWidget.setAttribute('style', items[i].style);
+			divWidget.appendChild(widget);
+			document.getElementById("design-div").appendChild(divWidget);
+  		}
+  	}
+
+  	showJason() {
+  		let globalVal = this.appService.getAppGlobals();
+  		this.jason = globalVal.jason != undefined ?  JSON.stringify(globalVal.jason, null, 2) : "";
+  	}
 
 
 }
