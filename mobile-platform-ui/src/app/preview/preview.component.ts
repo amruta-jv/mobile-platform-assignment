@@ -35,7 +35,7 @@ export class PreviewComponent implements OnInit {
     let globalVal = this.appService.getAppGlobals();
     console.log(document.getElementById('preview-div').childNodes)
     let previewDiv = document.getElementById('preview-div');
-        let jason: any = {"$jason": {
+    let jason: any = {"$jason": {
                                         "head": {}, 
                                         "body": {"sections": [ 
                                                           {"items": []}
@@ -47,20 +47,27 @@ export class PreviewComponent implements OnInit {
       let item = this.getItemJasonByWidget(previewDiv.childNodes[i]);
       jason["$jason"].body.sections[0].items.push(item);
       this.appService.updateAppGlobals("jason", jason);
-      console.log( jason["$jason"]);
     }
-
   }
 
 
   getItemJasonByWidget(widgetDiv) {
      let item;
+     console.log('Preview Component'+widgetDiv.style.length)
+    
+     //document.getElementById("design-div").childNodes[1].style.length
      switch(widgetDiv.childNodes[0].localName) {
-        case 'input': item = {"type": "textfield", "style": widgetDiv.getAttribute('style')};
+        case 'input': item = {"type": "textfield"};
                       break;
-        case 'button': item = {"type": "button", "style": widgetDiv.getAttribute('style')};
+        case 'button': item = {"type": "button"};
                        break;
      }
+     let style = {};
+     for (var i = 0; i < widgetDiv.style.length; ++i) {
+       var styleName = widgetDiv.style[i]
+       style[styleName] = widgetDiv.style[styleName].replace("px", "");
+     }
+     item["style"] = style;
 
      return item;
   }
