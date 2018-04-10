@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { JsonPipe } from '@angular/common';
 import { AppService } from '../../shared/app.service';
 declare var $: any;
 
@@ -22,7 +23,6 @@ export class DesignScreenComponent implements OnInit {
     		this.isJasonExists = false;
 
     	}
-    	console.log('isJasonExists',this.isJasonExists);
   	}
 
 
@@ -106,7 +106,6 @@ export class DesignScreenComponent implements OnInit {
 
 	loadJasonDesign() {
     	let globalVal = this.appService.getAppGlobals();
-    	var div = document.getElementById('design-div');
     	let jason = globalVal.jason != undefined ? globalVal.jason : "";
     	this.constructDesignDivByJason(jason);
   	}
@@ -115,22 +114,33 @@ export class DesignScreenComponent implements OnInit {
   		let items = jason["$jason"].body.sections[0].items;
   		let widget;
   		let style;
+  		document.getElementById("design-div").innerHTML = "";
   		for (var i = 0; i < items.length; ++i) {
 			switch (items[i].type) {
-			case 'textfield': widget = document.createElement('input');
-						  	  widget['id'] = "input-";
-						 	 break;
-			case 'button': widget = document.createElement('button');
-						  widget['id'] = "button-"
-						  widget.setAttribute('class', "btn-primary");
-						  widget.innerHTML = 'Submit';
-						  break;
+				case 'textfield': widget = document.createElement('input');
+							  	  widget['id'] = "input-";
+							 	 break;
+				case 'button': widget = document.createElement('button');
+							  widget['id'] = "button-"
+							  widget.setAttribute('class', "btn-primary");
+							  widget.innerHTML = 'Submit';
+							  break;
 			}
 			widget['id'] = widget['id'] + (i + 1);
 			let divWidget = document.createElement('div');
 			let divId = "div-" + (i + 1);
 			divWidget['id'] = divId;
-			divWidget.setAttribute('style', items[i].style);
+			for (var key in  items[i].style) {
+				if (key.indexOf("left") > -1 || key.indexOf("top") > -1) {
+					if (key.indexOf("left") > -1) {
+						divWidget.style[key] = (items[i].style[key] - 27) + "px";
+					} else {
+						divWidget.style[key] = items[i].style[key] + "px";
+					}
+				} else {
+					divWidget.style[key] = items[i].style[key];
+				}
+			}
 			divWidget.appendChild(widget);
 			document.getElementById("design-div").appendChild(divWidget);
   		}
@@ -138,7 +148,7 @@ export class DesignScreenComponent implements OnInit {
 
   	showJason() {
   		let globalVal = this.appService.getAppGlobals();
-  		this.jason = globalVal.jason != undefined ?  JSON.stringify(globalVal.jason, null, 2) : "";
+  		this.jason = globalVal.jason != undefined ?  globalVal.jason : "";
   	}
 
 
