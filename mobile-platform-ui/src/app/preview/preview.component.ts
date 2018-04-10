@@ -44,22 +44,21 @@ export class PreviewComponent implements OnInit {
                                     }
                           };
     for (var i = 0; i < previewDiv.childNodes.length; ++i) {
-      console.log("CHILD NODE" + previewDiv.childNodes[i].childNodes[0]);
-      console.log(jason["$jason"]);
-      let item = this.getItemJasonByWidget(previewDiv.childNodes[i].childNodes[0]);
+      let item = this.getItemJasonByWidget(previewDiv.childNodes[i]);
       jason["$jason"].body.sections[0].items.push(item);
+      this.appService.updateAppGlobals("jason", jason);
       console.log( jason["$jason"]);
     }
 
   }
 
 
-  getItemJasonByWidget(widget) {
-     let item; 
-     switch(widget.localName) {
-        case 'input': item = {"type": "textfield"};
+  getItemJasonByWidget(widgetDiv) {
+     let item;
+     switch(widgetDiv.childNodes[0].localName) {
+        case 'input': item = {"type": "textfield", "style": widgetDiv.getAttribute('style')};
                       break;
-        case 'button': item = {"type": "button"};
+        case 'button': item = {"type": "button", "style": widgetDiv.getAttribute('style')};
                        break;
      }
 
