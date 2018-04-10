@@ -26,6 +26,14 @@
         <source>Preview In Android</source>
         <target>Preview In Android</target>
       </trans-unit>
+      <trans-unit id="load_jason_design" datatype="html">
+        <source>Load Jason Design</source>
+        <target>Load Jason Design</target>
+      </trans-unit>
+      <trans-unit id="view_jason" datatype="html">
+        <source>View Jason</source>
+        <target>View Jason</target>
+      </trans-unit>
       <trans-unit id="preview" datatype="html">
         <source>Preview</source>
         <target>Preview</target>
